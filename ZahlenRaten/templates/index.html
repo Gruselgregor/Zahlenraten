@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zahlenraten</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/assets/css/all.css">
+    <link rel="stylesheet" href="/static/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="{{ url_for('static', filename='main.js') }}" defer></script>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1 id="title">Das lustige Zahlenraten</h1>
+
+
+        <div class="header-icons">
+
+            <div onclick="openSideMenu(2)">
+                <i class="fa-solid fa-info"></i>
+            </div>
+
+            <div onclick="openSideMenu(1)">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+            
+            <div id="brand-border">
+                <img id="brand-picture" src="{{ url_for('static', filename='images/RabeSocke.jfif') }}" alt="Mein Bild">
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="side-menu">
+        <div class="highscore">
+            <h1 class="center">Rangliste</h1>
+            <div class="table-wrapper center">
+                <table>
+                    <tr>
+                        <th>Spielername</th>
+                        <th>Highscore</th>
+                    </tr>
+                    <tr>
+                        <td>Justus</td>
+                        <td>5 Versuche</td>
+                    </tr>
+                    <tr>
+                        <td>Peter</td>
+                        <td>7 Versuche</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="rules">
+            <h1 class="center">Regeln</h1>
+            <div class="rules-text">
+                <p id="rules-text"></p>
+            </div>        
+        </div>
+
+        <div onclick="closeSideMenu()">
+            <i class="fa-solid fa-chevron-right"></i>
+        </div>
+    </div>
+
+    <div class="main-wrapper">
+        <div class="content giant">
+            <h1>Willkommen beim lustigen Zahlenraten!</h1>
+            <div class="center">
+                <label>Gib mir eine Zahl:&emsp;</label>            
+                <input class="small-padding" type="number" name="guess" id="guess" placeholder="Dein Tipp" required>&emsp;
+                <button class="small-padding" type="submit" onclick="checkNumber()">Raten</button>
+            </div>
+        </div>
+        <div id="answer-wrapper" class="answer-wrapper">
+            <div class="answer" id="answer"></div>
+        </div>
+    </div>
+        
+</body>
+</html>
